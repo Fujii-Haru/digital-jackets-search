@@ -141,3 +141,7 @@ function dataset() {
     },
   };
 }
+
+PetiteVue.createApp({
+  dataset
+}).mount()
