@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "ZenKaku";
+  src: url("Fonts/ZenKakuGothicNew-Bold.ttf");
+}
+
+body {
+  font-family: "ZenKaku", sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+select {
+  font-family: "ZenKaku", sans-serif;
+  width: 20%;
+}
+
+.select_div button {
+  font-family: "ZenKaku", sans-serif;
+  width: 70px;
+  height: 30px;
+  background-color: #cdcdcd;
+  border: none;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.jake {
+  margin: 20px;
+}
+
+.track_img:hover {
+  transform: scale(0.92);
+}
+
+.pop {
+  margin: 20px;
+  position: relative;
+  display: flex;
+  background-color: #ededed;
+}
+
+.pop img {
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+}
+
+.pop div {
+  display: flex;
+  flex-direction: column;
+}
+
+.pop button {
+  font-family: "ZenKaku", sans-serif;
+  position: absolute;
+  width: 70px;
+  height: 30px;
+  top: 10px;
+  right: 10px;
+  border-radius: 20px;
+
+  background-color: #cdcdcd;
+  border: none;
+}
+
+button:hover {
+  background-color: #b72828;
+}

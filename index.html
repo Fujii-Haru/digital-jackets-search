@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>デジタルジャケ写買いサービス</title>
+    <link href="最終課題.css" rel="stylesheet" />
+    <script src="https://unpkg.com/petite-vue" defer init></script>
+    <script src="最終課題.js"></script>
+  </head>
+
+  <body v-scope="dataset()">
+    <h1>一目惚れで音楽を聴いてみよう</h1>
+    <div class="select_div">
+      <p>好きなジャンルと色を選んで決定ボタンを押してね</p>
+
+      <select v-model="keyword" @change="genre_search()">
+        <option selected disabled value="">好きなジャンルは？</option>
+        <option v-for="val in genre" :value="val.name">{{val.jpn}}</option>
+      </select>
+      <!--<button @click = "genre_search()">決定</button>-->
+
+      <select v-model="color">
+        <option selected disabled value="">好きな色は？</option>
+        <option v-for="col in colors" :value="col.name">{{col.jpn}}</option>
+      </select>
+
+      <button @click="color_search()">決定</button>
+    </div>
+
+    <div style="display: none">
+      <img
+        v-for="track in tracks"
+        :src="track.artworkUrl100"
+        class="track_img"
+        crossorigin="anonymous"
+      />
+      <!--crossOrigin="anonymous" は外部(iTunes)から取ってきた画像をいじれるようにするおまじないらしい-->
+    </div>
+
+    <p v-if="show">
+      いいね！と思ったジャケット写真をクリックすると試聴できます
+    </p>
+
+    <div class="jake">
+      <img
+        v-for="track in after_tracks"
+        :src="track.artworkUrl100"
+        class="track_img"
+        crossorigin="anonymous"
+        @click="play_music(track)"
+      />
+    </div>
+
+    <div v-if="pop && pop_info" @click="pop = false" class="pop">
+      <img :src="pop_info.img" />
+      <div>
+        <h2>{{pop_info.album}}</h2>
+        <p>{{pop_info.artist}}</p>
+      </div>
+      <button @click="pop = false; stop_music()">閉じる</button>
+    </div>
+  </body>
+</html>
